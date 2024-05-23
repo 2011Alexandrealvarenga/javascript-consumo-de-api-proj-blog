@@ -20,4 +20,20 @@ async function readPosts(){
     postArea.innerHTML = 'Nenhum post para exibir';
   }
 }
+
+async function addNewPost(title, body){
+  
+}
+
+document.querySelector('#insertButton').addEventListener('click', () =>{
+  const title = document.querySelector('#titleFild').value;
+  const body = document.querySelector('#bodyFild').value;
+
+  if(title && body){
+    addNewPost(title,body);
+  }else{
+    alert('Preencha todos os campos');
+  }
+
+});
 readPosts();
