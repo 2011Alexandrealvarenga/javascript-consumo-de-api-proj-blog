@@ -22,7 +22,25 @@ async function readPosts(){
 }
 
 async function addNewPost(title, body){
+  await fetch(
+    'https://jsonplaceholder.typicode.com/posts',
+    {
+      method: 'POST',
+      headers:{
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: title,
+        body: body,
+        userid: 2
+      }),
+    }
+  );
+  // limpa os campos
+  document.querySelector('#titleFild').value = '';
+  document.querySelector('#bodyFild').value = '';
   
+  readPosts()
 }
 
 document.querySelector('#insertButton').addEventListener('click', () =>{
